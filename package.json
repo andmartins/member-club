@@ -1,0 +1,29 @@
+{
+  "name": "member-club",
+  "version": "1.0.0",
+  "description": "project members to chalenge rocketseat",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andmartins/member-club.git"
+  },
+  "keywords": [
+    "rocketseat",
+    "mba",
+    "member-club"
+  ],
+  "author": "Anderson Martins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andmartins/member-club/issues"
+  },
+  "homepage": "https://github.com/andmartins/member-club#readme",
+  "dependencies": {
+    "css-loader": "^7.1.2",
+    "json-server": "^1.0.0-beta.1",
+    "style-loader": "^4.0.0"
+  }
+}
