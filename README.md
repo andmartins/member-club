@@ -24,7 +24,8 @@
 
 <div align="center">
 
-![Preview do Projeto](.github/preview.png)
+![image](https://github.com/user-attachments/assets/9a275f00-f163-423d-9641-c3ff16d4242a)
+
 
 </div>
 
