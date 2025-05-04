@@ -8,3 +8,6 @@ import "./styles/history.css"
 import "./styles/input.css"
 import "./styles/logo.css"
 import "./styles/progress.css"
+
+import "./modules/input.js"
+import "./modules/submit.js"

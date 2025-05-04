@@ -6,8 +6,8 @@
 }
 
 .profile-picture-container {
-  width: 56px;
-  height: 56px;
+  width: 100px;
+  height: 100px;
   padding: 2px;
   background: var(--gradient-base);
   border-radius: 10px;
@@ -19,7 +19,9 @@
   width: 100%; 
   object-fit: cover;
   border: 2px solid white;
-  border-radius: 8px;  
+  border-radius: 8px; 
+  width: 100px;
+  height: 100px;
 }
 
 #client-since {

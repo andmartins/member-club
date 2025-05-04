@@ -18,7 +18,7 @@ function setAvatar(name) {
   profilePictures.forEach((profilePicture) => {
     profilePicture.setAttribute(
       "src",
-      `src/assets/avatar/${formatName(name)}.webp`
+      `/assets/avatar/${formatName(name)}.webp`
     );
   });
 }
