@@ -1,63 +1,56 @@
-const id = document.querySelectorAll(".id-tag")
-let slotsContainers = document.querySelectorAll(".slots")
+const id = document.querySelectorAll(".id-tag");
+let slotsContainers = document.querySelectorAll(".slots");
 
 export function loadLoyaltyCard(client) {
+  id.forEach((id) => {
+    id.textContent = `ID: ${client.id}`;
+  });
 
-    id.forEach(id => {
-        id.textContent = `ID: ${client.id}`
-    })
-
-    loadSlots(client.loyaltyCard)
+  loadSlots(client.loyaltyCard);
 }
 
 function loadSlots(loyaltyCard) {
-    slotsContainers.forEach(slotsContainer => {
-        let allSlots = slotsContainer.querySelectorAll(".slot")
+  slotsContainers.forEach((slotsContainer) => {
+    let allSlots = slotsContainer.querySelectorAll(".slot");
 
-        allSlots.forEach(slot => {
-        slot.classList.remove('slot-true');
-        })
+    allSlots.forEach((slot) => {
+      slot.classList.remove("slot-true");
+    });
 
-        if (allSlots.length < 10) {
+    if (allSlots.length < 10) {
+      while (allSlots.length < 10) {
+        const newSlot = document.createElement("div");
 
-            while (allSlots.length < 10) {
-                const newSlot = document.createElement('div')
+        newSlot.classList.add("slot");
+        slotsContainer.insertBefore(newSlot, slotsContainer.firstChild);
 
-                newSlot.classList.add("slot")
-                slotsContainer.insertBefore(newSlot, slotsContainer.firstChild)
+        allSlots = slotsContainer.querySelectorAll(".slot");
+      }
+    }
 
-                allSlots = slotsContainer.querySelectorAll(".slot")  
-            }
+    if (loyaltyCard.cutsNeeded < 10) {
+      for (let i = 0; i < 10 - loyaltyCard.cutsNeeded; i++) {
+        slotsContainer.removeChild(slotsContainer.firstElementChild);
+      }
 
-        }
+      allSlots = slotsContainer.querySelectorAll(".slot");
+    }
 
-        if (loyaltyCard.cutsNeeded < 10) {
+    for (let i = 0; i < loyaltyCard.totalCuts; i++) {
+      if (i == 9) {
+        allSlots[i].removeChild(allSlots[i].firstElementChild);
+        const giftCheck = document.createElement("img");
+        giftCheck.setAttribute("src", "/src/assets/icons/Gift-Check.svg");
+        allSlots[i].appendChild(giftCheck);
 
-            for (let i = 0; i < 10 - loyaltyCard.cutsNeeded; i++) {
-                slotsContainer.removeChild(slotsContainer.firstElementChild)
-            }
+        allSlots[i].classList.remove("slot-gift");
+        allSlots[i].classList.add("slot-gift-true");
 
-            allSlots = slotsContainer.querySelectorAll(".slot")
-        }
+        alert("Parabéns! Seu próximo corte é gratuito");
+        break;
+      }
 
-        for (let i = 0; i < loyaltyCard.totalCuts; i++) {
-
-            if (i == 9) {
-
-                allSlots[i].removeChild(allSlots[i].firstElementChild)
-                const giftCheck = document.createElement("img")
-                giftCheck.setAttribute("src", "/src/assets/icons/Gift-Check.svg")
-                allSlots[i].appendChild(giftCheck)
-
-                allSlots[i].classList.remove("slot-gift")
-                allSlots[i].classList.add("slot-gift-true")
-
-                alert("Parabéns! Seu próximo corte é gratuito")
-                break
-            }
-
-            allSlots[i].classList.add("slot-true")
-        }
-    })
-
+      allSlots[i].classList.add("slot-true");
+    }
+  });
 }
